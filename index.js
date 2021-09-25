@@ -73,7 +73,7 @@ client.on("message", (message) => {
   }
 });
 
-//speicifc word listeners
+//specific word listeners
 const everyone = "@everyone";
 
 client.on("message", (message) => {
