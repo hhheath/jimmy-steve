@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 
 // import functions
 const Ping = require('./commands/ping')
-const EvePrice = require('./commands/eve-price');
 const askJimmy = require('./commands/ask-jimmy');
 const Spam = require('./commands/spam');
 const Help = require('./commands/help');
@@ -50,11 +49,6 @@ client.on("message", (message) => {
   //ping for some reason
   if (message.content.startsWith(`${prefix}askJimmy`)) {
     askJimmy.askJimmy(message);  
-  }
-
-  // eve price
-  if (message.content.startsWith(`${prefix}eveprice`)) {
-    EvePrice.evePrice(message)
   }
 
   //key feature, spam
