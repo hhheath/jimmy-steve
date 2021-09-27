@@ -7,6 +7,7 @@ const askJimmy = require('./commands/ask-jimmy');
 const Spam = require('./commands/spam');
 const Help = require('./commands/help');
 const CoinPrice = require('./commands/coin-price');
+const IsLive = require('./commands/isLive')
 
 // Create an instance of a Discord client
 const client = new Discord.Client();
@@ -64,6 +65,11 @@ client.on("message", (message) => {
   //don't buy crypto, kids
   if (message.content.startsWith(`${prefix}crypto`)) {
     message.channel.send("don't buy crypto kids, it's a scam");
+  }
+
+  // is a streamer live?
+  if (message.content.startsWith(`${prefix}isLive`)) {
+    IsLive.isLive(message);
   }
 });
 
