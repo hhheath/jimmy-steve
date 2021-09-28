@@ -9,6 +9,18 @@ const Help = require('./commands/help');
 const CoinPrice = require('./commands/coin-price');
 const IsLive = require('./commands/isLive')
 
+//express
+const express = require('express');
+const app = express();
+const port = 3001;
+
+app.use(express.json()) // for parsing application/json
+
+app.post('/isLive', (req, res) => {
+  console.log(req);
+  res.send("ok");
+})
+
 // Create an instance of a Discord client
 const client = new Discord.Client();
 
@@ -92,3 +104,7 @@ client.on("message", (message) => {
 
 // Log our bot in using the token from https://discordapp.com/developers/applications/me
 client.login(auth.token);
+
+app.listen(port, () => {
+  console.log(`express listening on port ${port}`)
+});
