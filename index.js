@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 // import functions
 const Ping = require('./commands/ping')
-const askJimmy = require('./commands/ask-jimmy');
+// const openaiJimmy = require('./commands/ask-jimmy');
 const Spam = require('./commands/spam');
 const Help = require('./commands/help');
 const CoinPrice = require('./commands/coin-price');
@@ -59,10 +59,10 @@ client.on("message", (message) => {
     Ping.Ping(message);  
   }
 
-  //ping for some reason
-  if (message.content.startsWith(`${prefix}askJimmy`)) {
-    askJimmy.askJimmy(message);  
-  }
+  //open ai question and answer
+  // if (message.content.startsWith(`${prefix}askJimmy`)) {
+  //   openaiJimmy.askJimmy(message);  
+  // }
 
   //key feature, spam
   if (message.content.startsWith(`${prefix}spam`)) {
