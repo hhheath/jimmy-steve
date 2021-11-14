@@ -7,7 +7,8 @@ const Ping = require('./commands/ping')
 const Spam = require('./commands/spam');
 const Help = require('./commands/help');
 const CoinPrice = require('./commands/coin-price');
-const IsLive = require('./commands/isLive')
+const IsLive = require('./commands/isLive');
+const AddLink = require('./commands/add-link');
 
 //express
 const express = require('express');
@@ -60,6 +61,7 @@ client.on("message", (message) => {
   }
 
   //open ai question and answer
+  // ask jimmy is broken because i'm out of free tokens with open AI
   // if (message.content.startsWith(`${prefix}askJimmy`)) {
   //   openaiJimmy.askJimmy(message);  
   // }
@@ -82,6 +84,15 @@ client.on("message", (message) => {
   // is a streamer live?
   if (message.content.startsWith(`${prefix}isLive`)) {
     IsLive.isLive(message);
+  }
+
+  // add link 
+  if (message.content.startsWith(`${prefix}add`)) {
+    // if this command is used somewhere else, do nothing
+    if (message.guild.id !== '387687696992174080') return;
+
+    AddLink.addLink(message);
+
   }
 });
 
